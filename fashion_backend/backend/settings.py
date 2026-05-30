@@ -13,7 +13,7 @@ SECRET_KEY = "django-insecure-o4x-(#j1rx@=r7z32sk20sk0^e0mhho#)auch+tg*y1vct9-hw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     "extras",
     "order",
     "notification",
-    "rating"
+    "rating",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "backend.urls"
@@ -133,3 +135,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
